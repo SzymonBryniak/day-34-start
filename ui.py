@@ -31,7 +31,7 @@ class QuizInterface(QuizBrain):
 
         self.canvas.grid(column=0, row=1, columnspan=2)
         # widgets
-        self.score = tkinter.Label(text="Score: 0", bg=THEME_COLOR, fg="white", anchor=CENTER)
+        self.score = tkinter.Label(text=f"Your current score is: {self.score_brain}/1", bg=THEME_COLOR, fg="white", anchor=CENTER)
         self.score.grid(column=1, row=0, sticky=SE)
 
         self.green_button = tkinter.Button(image=self.new_green, border=0, borderwidth=0, background="green", command=lambda: self.user_answer("True"))
@@ -46,7 +46,7 @@ class QuizInterface(QuizBrain):
         if self.still_has_questions():
             self.canvas.delete("all")
             text = self.check_answer(value)
-            self.score.configure(text=f"Score: {self.score_value}", bg=THEME_COLOR, fg="white", anchor=CENTER)
+            self.score.configure(text=f"{text}", bg=THEME_COLOR, fg="white", anchor=CENTER)
             # self.canvas.create_text(150, 90, text=text, font='Helvetica 15 bold', fill="black")
             # time.sleep(2)
             self.canvas.create_text(150, 90, text=self.next_question(), font='Helvetica 15 bold', fill="black")
