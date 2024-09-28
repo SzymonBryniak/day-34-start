@@ -8,7 +8,10 @@ parameters = {
 response = requests.get('https://opentdb.com/api.php?amount=10&type=boolean')   # on udemy parameter option was passed
 response.raise_for_status()
 question_data = response.json()['results']
-print(response)
+question_data2 = response.json()['results']
+for i in question_data2:
+    for key, value in i.items():
+        print(value)
 # question_data = [
 #     {
 #         "category": "Science: Computers",
